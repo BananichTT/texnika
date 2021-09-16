@@ -3,6 +3,7 @@ package com.mycompany.texnika;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class PrimaryController {
@@ -14,13 +15,14 @@ public class PrimaryController {
        
        Node pass = App.getRoot().lookup("#password");
        TextField password = (TextField) pass;
-
+       
+       Label err = (Label) App.getRoot().lookup("#error");
        
        if((username.getText().equals("Sany")) && (password.getText().equals("123"))){
+        err.setText("");
         App.setRoot("secondary");
-        System.out.println("SUCCESSFUL");
        }else{
-        System.out.println("EROOR: PASSWORD OR USERNAME");
+        err.setText("Неверный логин или пароль!");
        }
     }
 }
