@@ -7,7 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class PrimaryController {
-
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("OnlineShopPU");
+    public static EntityManager em = emf.createEntityManager();
     @FXML
     private void switchToSecondary() throws IOException {
        Node user = App.getRoot().lookup("#username");
