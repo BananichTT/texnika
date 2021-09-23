@@ -12,19 +12,25 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 public class PrimaryController {
-
+    public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_texnika_jar_1.0-SNAPSHOTPU");
+    public static EntityManager em = emf.createEntityManager();
     
     @FXML
     private void switchToSecondary() throws IOException {
-       Node userl = App.getRoot().lookup("#username");
-       TextField username = (TextField) userl;
+       Node u = App.getRoot().lookup("#username");
+       TextField username = (TextField) u;
        
-       Node pass = App.getRoot().lookup("#password");
-       TextField password = (TextField) pass;
+       Node p = App.getRoot().lookup("#password");
+       TextField password = (TextField) p;
        
        Label err = (Label) App.getRoot().lookup("#error");
 
-       
+       Query q = em.createNamedQuery("Users.findByLogin");
+        q.setParameter("login", "administrator");
+        Users user = (Users) q.getSingleResult();
+        System.out.println("user: " + user);
+
+        
        if((username.getText().equals("Sany")) && (password.getText().equals("123"))){
         err.setText("");
         App.setRoot("secondary");

@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author buldi
+ * @author student
  */
 @Entity
 @Table(name = "role")

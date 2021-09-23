@@ -6,13 +6,11 @@
 package com.mycompany.texnika.db;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -20,7 +18,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author buldi
+ * @author student
  */
 @Entity
 @Table(name = "users")
@@ -43,8 +41,6 @@ public class Users implements Serializable {
     private String password;
     @Column(name = "name")
     private String name;
-    @ManyToMany(mappedBy = "usersCollection")
-    private Collection<Order1> order1Collection;
     @JoinColumn(name = "role_id_role", referencedColumnName = "id_role")
     @ManyToOne(optional = false)
     private Role roleIdRole;
@@ -86,14 +82,6 @@ public class Users implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Collection<Order1> getOrder1Collection() {
-        return order1Collection;
-    }
-
-    public void setOrder1Collection(Collection<Order1> order1Collection) {
-        this.order1Collection = order1Collection;
     }
 
     public Role getRoleIdRole() {
