@@ -25,17 +25,20 @@ public class PrimaryController {
        
        Label err = (Label) App.getRoot().lookup("#error");
 
-       Query q = em.createNamedQuery("Users.findByLogin");
-        q.setParameter("login", "administrator");
-        Users user = (Users) q.getSingleResult();
+       Query q = em.createNamedQuery("Users.findUser");
+        q.setParameter("login", username.getText()); // присваиваем логин
+        q.setParameter("password", password.getText()); // присваиваем пароль
+        Users user = (Users) q.getSingleResult(); // проверяем на наличие пользователя в таблице
+        App.setRoot("secondary");
         System.out.println("user: " + user);
 
         
-       if((username.getText().equals("Sany")) && (password.getText().equals("123"))){
+       /*if((username.getText().equals("Sany")) && (password.getText().equals("123"))){
         err.setText("");
         App.setRoot("secondary");
        }else{
         err.setText("Неверный логин или пароль!");
        }
-    }
+    }*/
+}
 }

@@ -27,6 +27,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Users.findByIdUser", query = "SELECT u FROM Users u WHERE u.idUser = :idUser"),
     @NamedQuery(name = "Users.findByLogin", query = "SELECT u FROM Users u WHERE u.login = :login"),
     @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
+    @NamedQuery(name = "Users.findUser", query = "SELECT u FROM Users u WHERE u.login = :login AND u.password = :password"), //ищет запись по логину и паролю
     @NamedQuery(name = "Users.findByName", query = "SELECT u FROM Users u WHERE u.name = :name")})
 public class Users implements Serializable {
 
