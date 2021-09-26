@@ -1,5 +1,7 @@
 package com.mycompany.texnika;
 
+import com.mycompany.texnika.db.Role;
+import com.mycompany.texnika.db.User;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javax.persistence.EntityManager;
@@ -20,9 +22,38 @@ public class RegisterController {
     @FXML
     private void registerUser () throws IOException {
        Node u = App.getRoot().lookup("#username");
-       TextField username = (TextField) u;
+       TextField usern = (TextField) u;
+       
+       Node l = App.getRoot().lookup("#userlogin");
+       TextField userl = (TextField) l; 
        
        Node p = App.getRoot().lookup("#password");
-       TextField password = (TextField) p; 
+       TextField userp = (TextField) p; 
+       
+       
+       
+       String username = usern.getText();
+       String userlogin = userl.getText();
+       String userpassword = userp.getText();        
+       
+       System.out.println("user name: "+ username);
+       System.out.println("user login: "+ userlogin);
+       System.out.println("user pass: "+ userpassword);
+       
+       /* неработающая регистрация
+       
+       String name = "sanf";
+
+        User user = new User();
+        user.setIdUser(1);
+        user.setLogin(userlogin);
+        user.setPassword(userpassword);
+        user.setName(name);
+        
+        
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();*/
+       
     }
 }
