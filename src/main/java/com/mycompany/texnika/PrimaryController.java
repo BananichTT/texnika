@@ -44,8 +44,8 @@ public class PrimaryController {
      
     }
     
-        @FXML
-    private void switchToRegister() throws IOException {
+       @FXML
+    private void switchToRegist() throws IOException {
         App.setRoot("register");
     }
 }

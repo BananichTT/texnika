@@ -3,16 +3,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="237.0" prefWidth="251.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.texnika.RegisterController">
+<AnchorPane id="AnchorPane" prefHeight="322.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.texnika.RegisterController">
    <children>
-      <TextField layoutX="83.0" layoutY="95.0" />
-      <PasswordField layoutX="83.0" layoutY="138.0" />
-      <Button alignment="CENTER" layoutX="131.0" layoutY="174.0" mnemonicParsing="false" text="Register" />
-      <Text layoutX="20.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
-      <Text layoutX="20.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchBack" text="Back" />
+      <TextField layoutX="122.0" layoutY="124.0" />
+      <Text layoutX="65.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRATION">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="42.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" />
+      <Text layoutX="43.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
+      <PasswordField layoutX="122.0" layoutY="169.0" />
+      <Button layoutX="159.0" layoutY="219.0" mnemonicParsing="false" text="Register" />
    </children>
-</Pane>
+</AnchorPane>
