@@ -6,30 +6,33 @@
 package com.mycompany.texnika.db;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author student
+ * @author buldi
  */
 @Entity
-@Table(name = "users")
+@Table(name = "user")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-    @NamedQuery(name = "Users.findByIdUser", query = "SELECT u FROM Users u WHERE u.idUser = :idUser"),
-    @NamedQuery(name = "Users.findByLogin", query = "SELECT u FROM Users u WHERE u.login = :login"),
-    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
-    @NamedQuery(name = "Users.findUser", query = "SELECT u FROM Users u WHERE u.login = :login AND u.password = :password"), //ищет запись по логину и паролю
-    @NamedQuery(name = "Users.findByName", query = "SELECT u FROM Users u WHERE u.name = :name")})
-public class Users implements Serializable {
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+    @NamedQuery(name = "User.findByIdUser", query = "SELECT u FROM User u WHERE u.idUser = :idUser"),
+    @NamedQuery(name = "User.findByLogin", query = "SELECT u FROM User u WHERE u.login = :login"),
+    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
+    @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name"),
+    @NamedQuery(name = "User.findByRoleIdRole", query = "SELECT u FROM User u WHERE u.roleIdRole = :roleIdRole")})
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -42,15 +45,22 @@ public class Users implements Serializable {
     private String password;
     @Column(name = "name")
     private String name;
-    @JoinColumn(name = "role_id_role", referencedColumnName = "id_role")
-    @ManyToOne(optional = false)
-    private Role roleIdRole;
+    @Basic(optional = false)
+    @Column(name = "role_id_role")
+    private int roleIdRole;
+    @ManyToMany(mappedBy = "userCollection")
+    private Collection<Order> order1Collection;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(Integer idUser) {
+    public User(Integer idUser) {
         this.idUser = idUser;
+    }
+
+    public User(Integer idUser, int roleIdRole) {
+        this.idUser = idUser;
+        this.roleIdRole = roleIdRole;
     }
 
     public Integer getIdUser() {
@@ -85,12 +95,21 @@ public class Users implements Serializable {
         this.name = name;
     }
 
-    public Role getRoleIdRole() {
+    public int getRoleIdRole() {
         return roleIdRole;
     }
 
-    public void setRoleIdRole(Role roleIdRole) {
+    public void setRoleIdRole(int roleIdRole) {
         this.roleIdRole = roleIdRole;
+    }
+
+    @XmlTransient
+    public Collection<Order> getOrder1Collection() {
+        return order1Collection;
+    }
+
+    public void setOrder1Collection(Collection<Order> order1Collection) {
+        this.order1Collection = order1Collection;
     }
 
     @Override
@@ -103,10 +122,10 @@ public class Users implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Users)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        Users other = (Users) object;
+        User other = (User) object;
         if ((this.idUser == null && other.idUser != null) || (this.idUser != null && !this.idUser.equals(other.idUser))) {
             return false;
         }
@@ -115,7 +134,7 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.texnika.db.Users[ idUser=" + idUser + " ]";
+        return "com.mycompany.texnika.db.User[ idUser=" + idUser + " ]";
     }
     
 }

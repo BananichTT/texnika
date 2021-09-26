@@ -25,7 +25,7 @@ public class PrimaryController {
        
        Label err = (Label) App.getRoot().lookup("#error");
 
-       Query q = em.createNamedQuery("Users.findByLogin");
+       Query q = em.createNamedQuery("User.findByLogin");
        String userlogin = username.getText();
        String userpassword = password.getText();
        
