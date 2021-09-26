@@ -4,6 +4,7 @@ module com.mycompany.texnika {
     requires java.persistence;
     requires java.sql;
     requires org.hibernate.orm.core;
+    requires java.base;
 
 
 
