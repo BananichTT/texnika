@@ -5,6 +5,7 @@ module com.mycompany.texnika {
     requires java.sql;
     requires org.hibernate.orm.core;
     requires java.base;
+    requires java.xml.bind;
 
 
 

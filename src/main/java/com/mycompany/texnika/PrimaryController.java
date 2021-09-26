@@ -1,6 +1,6 @@
 package com.mycompany.texnika;
 
-import com.mycompany.texnika.db.Users;
+import com.mycompany.texnika.db.User;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -30,7 +30,7 @@ public class PrimaryController {
        String userpassword = password.getText();
        
         q.setParameter("login", userlogin); // присваиваем логин
-        Users user = (Users) q.getSingleResult(); 
+        User user = (User) q.getSingleResult(); 
 
         if(user == null){
             err.setText("Неверный логин или пароль!");

@@ -12,6 +12,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -38,6 +40,7 @@ public class Technika implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_t")
     private Integer idT;
@@ -51,7 +54,7 @@ public class Technika implements Serializable {
     @Column(name = "on_sclad")
     private Integer onSclad;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "technikaIdT")
-    private Collection<Order> order1Collection;
+    private Collection<Order1> order1Collection;
 
     public Technika() {
     }
@@ -101,11 +104,11 @@ public class Technika implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Order> getOrder1Collection() {
+    public Collection<Order1> getOrder1Collection() {
         return order1Collection;
     }
 
-    public void setOrder1Collection(Collection<Order> order1Collection) {
+    public void setOrder1Collection(Collection<Order1> order1Collection) {
         this.order1Collection = order1Collection;
     }
 

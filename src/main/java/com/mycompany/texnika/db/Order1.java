@@ -11,6 +11,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -36,10 +38,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Order1.findByIdOrder", query = "SELECT o FROM Order1 o WHERE o.idOrder = :idOrder"),
     @NamedQuery(name = "Order1.findByCostOrder", query = "SELECT o FROM Order1 o WHERE o.costOrder = :costOrder"),
     @NamedQuery(name = "Order1.findByDateOrder", query = "SELECT o FROM Order1 o WHERE o.dateOrder = :dateOrder")})
-public class Order implements Serializable {
+public class Order1 implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_order")
     private Integer idOrder;
@@ -57,10 +60,10 @@ public class Order implements Serializable {
     @ManyToOne(optional = false)
     private Technika technikaIdT;
 
-    public Order() {
+    public Order1() {
     }
 
-    public Order(Integer idOrder) {
+    public Order1(Integer idOrder) {
         this.idOrder = idOrder;
     }
 
@@ -115,10 +118,10 @@ public class Order implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Order)) {
+        if (!(object instanceof Order1)) {
             return false;
         }
-        Order other = (Order) object;
+        Order1 other = (Order1) object;
         if ((this.idOrder == null && other.idOrder != null) || (this.idOrder != null && !this.idOrder.equals(other.idOrder))) {
             return false;
         }
