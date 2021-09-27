@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javax.persistence.Query;
 
 public class RegisterController {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_texnika_jar_1.0-SNAPSHOTPU");
@@ -34,11 +35,19 @@ public class RegisterController {
        
        String username = usern.getText();
        String userlogin = userl.getText();
-       String userpassword = userp.getText();        
+       String userpassword = userp.getText(); 
+
+       Query q = em.createQuery("User.createUser");
+       q.setParameter("login", userlogin);
+       q.setParameter("password", userpassword);
+       q.setParameter("name", username);
+       q.setParameter("roleIdRole", 1);
        
-       System.out.println("user name: "+ username);
-       System.out.println("user login: "+ userlogin);
-       System.out.println("user pass: "+ userpassword);
+      
+       
+       System.out.println("user name: " + username);
+       System.out.println("user login: " + userlogin);
+       System.out.println("user pass: " + userpassword);
        
        /* неработающая регистрация
        
