@@ -6,21 +6,16 @@
 package com.mycompany.texnika.db;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByIdUser", query = "SELECT u FROM User u WHERE u.idUser = :idUser"),
     @NamedQuery(name = "User.findByLogin", query = "SELECT u FROM User u WHERE u.login = :login"),
     @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.createUser", query = "INSERT INTO User VALUES(login = :logi, password = :password, name = :name, roleIdRole= :roleIdRole)"),
     @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")})
 public class User implements Serializable {
 
@@ -42,7 +36,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id_user")
+    @Column(name = "idUser")
     private Integer idUser;
     @Column(name = "login")
     private String login;
@@ -50,11 +44,6 @@ public class User implements Serializable {
     private String password;
     @Column(name = "name")
     private String name;
-    @ManyToMany(mappedBy = "userCollection")
-    private Collection<Order1> order1Collection;
-    @JoinColumn(name = "role_id_role", referencedColumnName = "id_role")
-    @ManyToOne(optional = false)
-    private Role roleIdRole;
 
     public User() {
     }
@@ -93,23 +82,6 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @XmlTransient
-    public Collection<Order1> getOrder1Collection() {
-        return order1Collection;
-    }
-
-    public void setOrder1Collection(Collection<Order1> order1Collection) {
-        this.order1Collection = order1Collection;
-    }
-
-    public Role getRoleIdRole() {
-        return roleIdRole;
-    }
-
-    public void setRoleIdRole(Role roleIdRole) {
-        this.roleIdRole = roleIdRole;
     }
 
     @Override

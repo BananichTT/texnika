@@ -1,6 +1,6 @@
 package com.mycompany.texnika;
 
-import com.mycompany.texnika.db.Role;
+
 import com.mycompany.texnika.db.User;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -35,34 +35,21 @@ public class RegisterController {
        
        String username = usern.getText();
        String userlogin = userl.getText();
-       String userpassword = userp.getText(); 
-
-       Query q = em.createQuery("User.createUser");
-       q.setParameter("login", userlogin);
-       q.setParameter("password", userpassword);
-       q.setParameter("name", username);
-       q.setParameter("roleIdRole", 1);
-       
+       String userpassword = userp.getText();    
       
-       
-       System.out.println("user name: " + username);
-       System.out.println("user login: " + userlogin);
-       System.out.println("user pass: " + userpassword);
-       
-       /* неработающая регистрация
-       
-       String name = "sanf";
-
         User user = new User();
-        user.setIdUser(1);
         user.setLogin(userlogin);
         user.setPassword(userpassword);
-        user.setName(name);
+        user.setName(username);
         
         
         em.getTransaction().begin();
         em.persist(user);
-        em.getTransaction().commit();*/
+        em.getTransaction().commit();
+        
+       System.out.println("user name: " + username);
+       System.out.println("user login: " + userlogin);
+       System.out.println("user pass: " + userpassword);
        
     }
 }
