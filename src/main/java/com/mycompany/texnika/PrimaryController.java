@@ -36,13 +36,17 @@ public class PrimaryController {
         if(user == null){
             err.setText("Неверный логин или пароль!");
         }else{
-            if(user.getPassword().equals(userpassword)){
-            err.setText("");
-            App.setRoot("secondary");
+            if(userpassword == null){
+                err.setText("Неверный логин или пароль!");
+            }else{
+                if(user.getPassword().equals(userpassword)){
+                err.setText("");
+                App.setRoot("secondary");
             }
             err.setText("Неверный логин или пароль!");
+            
+            }
         }
-     
     }
     
        @FXML

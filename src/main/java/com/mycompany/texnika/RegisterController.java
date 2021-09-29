@@ -31,8 +31,6 @@ public class RegisterController {
        Node p = App.getRoot().lookup("#password");
        TextField userp = (TextField) p; 
        
-       
-       
        String username = usern.getText();
        String userlogin = userl.getText();
        String userpassword = userp.getText();    

@@ -9,16 +9,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="357.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.texnika.PrimaryController">
+<BorderPane prefHeight="357.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.texnika.PrimaryController">
    <right>
       <Pane prefHeight="357.0" prefWidth="307.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="14.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="55.892578125" />
-            <TextField id="username" layoutX="117.0" layoutY="133.0" />
+            <Text layoutX="10.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="72.892578125" />
+            <TextField id="username" layoutX="117.0" layoutY="133.0" prefHeight="24.0" prefWidth="147.0" />
             <Text layoutX="14.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" />
             <PasswordField id="password" layoutX="117.0" layoutY="171.0" prefHeight="25.0" prefWidth="149.0" />
-            <Label id="error" />
-            <Button fx:id="primaryButton" layoutX="169.0" layoutY="218.0" onAction="#switchToSecondary" text="Login" />
+            <Label id="error" layoutX="13.0" layoutY="247.0" prefHeight="30.0" prefWidth="271.0" />
+            <Button fx:id="primaryButton" layoutX="165.0" layoutY="209.0" onAction="#switchToSecondary" text="Login" />
             <Text layoutX="101.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
                <font>
                   <Font size="36.0" />
@@ -28,7 +28,7 @@
       </Pane>
    </right>
    <left>
-      <Pane prefHeight="357.0" prefWidth="267.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="357.0" prefWidth="285.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="81.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToRegist" text="Registration" />
             <Text layoutX="17.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Если ты еще не зарегистрирован в нашей системе, то нажми на кнопку регистрации" textAlignment="CENTER" wrappingWidth="208.197265625" />
