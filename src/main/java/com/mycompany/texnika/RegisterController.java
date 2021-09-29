@@ -47,9 +47,7 @@ public class RegisterController {
         em.persist(user);
         em.getTransaction().commit();
         
-       System.out.println("user name: " + username);
-       System.out.println("user login: " + userlogin);
-       System.out.println("user pass: " + userpassword);
+        App.setRoot("primary");
        
     }
 }
