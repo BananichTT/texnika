@@ -24,7 +24,6 @@
    <right>
       <Pane prefHeight="318.0" prefWidth="585.0" BorderPane.alignment="CENTER">
          <children>
-              <Button fx:id="secondaryButton" layoutX="14.0" layoutY="279.0" onAction="#switchToPrimary" prefHeight="24.0" prefWidth="70.0" text="Exit" />
             <Button layoutX="479.0" layoutY="134.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="73.0" text="Add" />
             <Button layoutX="385.0" layoutY="168.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Delete" />
             <TextField layoutX="459.0" layoutY="32.0" prefHeight="25.0" prefWidth="112.0" />
@@ -37,4 +36,7 @@
          </children>
       </Pane>
    </right>
+   <bottom>
+        <Button fx:id="secondaryButton" onAction="#switchToPrimary" prefHeight="24.0" prefWidth="70.0" text="Exit" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>
