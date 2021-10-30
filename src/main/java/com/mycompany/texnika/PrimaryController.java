@@ -42,7 +42,7 @@ public class PrimaryController {
             if (user.getPassword().equals(userpassword)) {
                 error.setText("");
                 Userrole role = user.getRoleId();
-                if(role.getRoleName().equals("admin")){
+                if(role.getRoleName().equals("user")){
                     App.setRoot("secondary");
                 }
             } else {

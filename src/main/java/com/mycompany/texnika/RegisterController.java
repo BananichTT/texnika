@@ -1,6 +1,7 @@
 package com.mycompany.texnika;
 
 import com.mycompany.texnika.db.User;
+import com.mycompany.texnika.db.Userrole;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.Persistence;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.persistence.Query;
 
 public class RegisterController {
     
@@ -50,12 +52,19 @@ public class RegisterController {
         }*/
 
         //if ((userlogin != null) && (userpassword != null) && (username == null)) {
+            Query q = em.createNamedQuery("Userrole.findByRoleName");
+            q.setParameter("roleName", "user");
+            Userrole rol = (Userrole) q.getSingleResult();
+            em.getTransaction().begin(); 
+      
+        
             User user = new User();
             user.setLogin(userlogin);
             user.setPassword(userpassword);
             user.setName(username);
+            user.setRoleId(rol);
 
-            em.getTransaction().begin();
+            
             em.persist(user);
             em.getTransaction().commit();
             

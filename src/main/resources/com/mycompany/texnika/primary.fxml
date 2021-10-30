@@ -30,7 +30,7 @@
    <left>
       <Pane prefHeight="357.0" prefWidth="285.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="81.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToRegist" text="Registration" />
+            <Button fx:id="registerButton" layoutX="81.0" layoutY="220.0" mnemonicParsing="false" onAction="#switchToRegist" text="Registration" />
             <Text layoutX="17.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Если ты еще не зарегистрирован в нашей системе, то нажми на кнопку регистрации" textAlignment="CENTER" wrappingWidth="208.197265625" />
          </children>
       </Pane>
