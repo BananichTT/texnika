@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -44,6 +46,9 @@ public class User implements Serializable {
     private String password;
     @Column(name = "name")
     private String name;
+    @JoinColumn(name = "RoleId", referencedColumnName = "idRole")
+    @ManyToOne(optional = false)
+    private Userrole roleId;
 
     public User() {
     }
@@ -54,6 +59,11 @@ public class User implements Serializable {
 
     public Integer getIdUser() {
         return idUser;
+    }
+    
+    public User(Integer idUser, String login){
+        this.idUser = idUser;
+        this.login = login;
     }
 
     public void setIdUser(Integer idUser) {
@@ -82,6 +92,14 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Userrole getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Userrole roleId) {
+        this.roleId = roleId;
     }
 
     @Override

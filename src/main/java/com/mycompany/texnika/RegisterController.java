@@ -39,7 +39,7 @@ public class RegisterController {
         String userlogin = userLoginTextField.getText();
         String userpassword = userPasswordField.getText();
 
-        if (userlogin.equals("")) {
+        /*if (userlogin.equals("")) {
             error.setText("Неверный логин или пароль!");
         }
         if (userpassword.equals("")) {
@@ -47,9 +47,9 @@ public class RegisterController {
         }
         if (username.equals("")) {
             error.setText("Неверный логин или пароль!");
-        }
+        }*/
 
-        if ((userlogin != null) && (userpassword != null) && (username == null)) {
+        //if ((userlogin != null) && (userpassword != null) && (username == null)) {
             User user = new User();
             user.setLogin(userlogin);
             user.setPassword(userpassword);
@@ -58,8 +58,12 @@ public class RegisterController {
             em.getTransaction().begin();
             em.persist(user);
             em.getTransaction().commit();
+            
+            System.out.println("user name: " + username);
+            System.out.println("user login: " + userlogin);
+            System.out.println("user pass: " + userpassword);
 
             App.setRoot("primary");
-        }
+       // }
     }
 }

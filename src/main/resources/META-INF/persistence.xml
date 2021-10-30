@@ -3,6 +3,7 @@
   <persistence-unit name="com.mycompany_texnika_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <class>com.mycompany.texnika.db.User</class>
+    <class>com.mycompany.texnika.db.Userrole</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/texnika?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
