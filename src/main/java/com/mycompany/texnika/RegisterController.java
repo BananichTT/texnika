@@ -55,16 +55,14 @@ public class RegisterController {
             Query q = em.createNamedQuery("Userrole.findByRoleName");
             q.setParameter("roleName", "user");
             Userrole rol = (Userrole) q.getSingleResult();
-            em.getTransaction().begin(); 
-      
+            em.getTransaction().begin();       
         
             User user = new User();
             user.setLogin(userlogin);
             user.setPassword(userpassword);
             user.setName(username);
             user.setRoleId(rol);
-
-            
+          
             em.persist(user);
             em.getTransaction().commit();
             

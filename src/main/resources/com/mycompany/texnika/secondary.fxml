@@ -12,10 +12,11 @@
    <center>
       <Pane prefHeight="146.0" prefWidth="415.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView prefHeight="244.0" prefWidth="379.0">
+            <TableView fx:id="tovar" prefHeight="244.0" prefWidth="379.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Name" prefWidth="142.0" text="Name" />
+                <TableColumn fx:id="Type" prefWidth="131.0" text="Type" />
+                  <TableColumn fx:id="Cost" minWidth="0.0" prefWidth="104.0" text="Cost" />
               </columns>
             </TableView>
          </children>
