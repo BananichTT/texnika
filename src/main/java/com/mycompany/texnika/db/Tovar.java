@@ -6,7 +6,6 @@
 package com.mycompany.texnika.db;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,9 +42,8 @@ public class Tovar implements Serializable {
     private String name;
     @Column(name = "type")
     private String type;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "cost")
-    private BigDecimal cost;
+    private String cost;
 
     public Tovar() {
     }
@@ -78,11 +76,11 @@ public class Tovar implements Serializable {
         this.type = type;
     }
 
-    public BigDecimal getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(BigDecimal cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 

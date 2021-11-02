@@ -14,9 +14,9 @@
          <children>
             <TableView fx:id="tovar" prefHeight="244.0" prefWidth="379.0">
               <columns>
-                <TableColumn fx:id="Name" prefWidth="142.0" text="Name" />
-                <TableColumn fx:id="Type" prefWidth="131.0" text="Type" />
-                  <TableColumn fx:id="Cost" minWidth="0.0" prefWidth="104.0" text="Cost" />
+                <TableColumn fx:id="nameColumn" prefWidth="142.0" text="Name" />
+                <TableColumn fx:id="typeColumn" prefWidth="131.0" text="Type" />
+                  <TableColumn fx:id="costColumn" minWidth="0.0" prefWidth="104.0" text="Cost" />
               </columns>
             </TableView>
          </children>
