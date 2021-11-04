@@ -1,5 +1,6 @@
 package com.mycompany.texnika;
 
+import static com.mycompany.texnika.RegisterController.em;
 import com.mycompany.texnika.db.Tovar;
 import java.io.IOException;
 import java.util.List;
@@ -13,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 
 
 
@@ -32,13 +34,20 @@ public class SecondaryController {
     private TableColumn<Tovar, String> costColumn;
     
     @FXML
+    private TextField tovarNameTextField;
+    @FXML
+    private TextField tovarTypeTextField;
+    @FXML
+    private TextField tovarCostTextField;
+    
+    @FXML
     public void initialize(){
         Query q = em.createNamedQuery("Tovar.findAll");
         List<Tovar> tovarList = q.getResultList();
         
-        for (Tovar t : tovarList) {
-            System.out.println(t.getName());
-        }
+//        for (Tovar t : tovarList) {
+//            System.out.println(t.getName());
+//        }
 
         nameColumn.setCellValueFactory((TableColumn.CellDataFeatures<Tovar, String> cd) -> {
             return new SimpleStringProperty(cd.getValue().getName());
@@ -56,7 +65,30 @@ public class SecondaryController {
         tovar.setItems(tovars);
    }
 
-            
+    
+    @FXML
+    private void addTovar() throws IOException{
+        String tovarName = tovarNameTextField.getText();
+        String tovarType = tovarTypeTextField.getText();
+        String tovarCost = tovarCostTextField.getText();
+        
+        Tovar tovarIns = new Tovar();
+        tovarIns.setName(tovarName);
+        tovarIns.setType(tovarType);
+        tovarIns.setCost(tovarCost);
+        
+        em.getTransaction().begin();
+        em.persist(tovarIns);
+        em.getTransaction().commit();
+        
+       tovarNameTextField.setText("");
+       tovarTypeTextField.setText("");
+       tovarCostTextField.setText("");
+        
+        initialize();
+        
+    }
+    
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");

@@ -25,19 +25,23 @@
    <right>
       <Pane prefHeight="318.0" prefWidth="585.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="479.0" layoutY="134.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="73.0" text="Add" />
+            <Button layoutX="479.0" layoutY="134.0" mnemonicParsing="false" onAction="#addTovar" prefHeight="24.0" prefWidth="73.0" text="Add" />
             <Button layoutX="385.0" layoutY="168.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Delete" />
-            <TextField layoutX="459.0" layoutY="32.0" prefHeight="25.0" prefWidth="112.0" />
-            <TextField layoutX="459.0" layoutY="65.0" prefHeight="25.0" prefWidth="112.0" />
-            <TextField layoutX="459.0" layoutY="101.0" prefHeight="25.0" prefWidth="112.0" />
-            <Button layoutX="479.0" layoutY="168.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Update" />
-            <Text layoutX="399.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text layoutX="399.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text layoutX="399.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <TextField fx:id="tovarNameTextField" layoutX="459.0" layoutY="32.0" prefHeight="25.0" prefWidth="112.0" />
+            <TextField fx:id="tovarTypeTextField" layoutX="459.0" layoutY="65.0" prefHeight="25.0" prefWidth="112.0" />
+            <TextField fx:id="tovarCostTextField" layoutX="459.0" layoutY="101.0" prefHeight="25.0" prefWidth="112.0" />
+            <Button layoutX="479.0" layoutY="168.0" mnemonicParsing="false" onAction="#initialize" prefHeight="27.0" prefWidth="74.0" text="Update" />
+            <Text layoutX="391.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TovarName" />
+            <Text layoutX="394.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TovarType" />
+            <Text layoutX="395.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TovarCost" />
          </children>
       </Pane>
    </right>
    <bottom>
-        <Button fx:id="secondaryButton" onAction="#switchToPrimary" prefHeight="24.0" prefWidth="70.0" text="Exit" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="66.0" prefWidth="585.0" BorderPane.alignment="CENTER">
+         <children>
+              <Button fx:id="secondaryButton" layoutX="258.0" layoutY="21.0" onAction="#switchToPrimary" prefHeight="15.0" prefWidth="70.0" text="Exit" />
+         </children>
+      </Pane>
    </bottom>
 </BorderPane>
