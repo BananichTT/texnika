@@ -1,7 +1,7 @@
 package com.mycompany.texnika;
 
 import com.mycompany.texnika.db.User;
-import com.mycompany.texnika.db.Userrole;
+import com.mycompany.texnika.db.UserRole;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javax.persistence.EntityManager;
@@ -54,7 +54,7 @@ public class RegisterController {
         //if ((userlogin != null) && (userpassword != null) && (username == null)) {
             Query q = em.createNamedQuery("Userrole.findByRoleName");
             q.setParameter("roleName", "user");
-            Userrole rol = (Userrole) q.getSingleResult();
+            UserRole rol = (UserRole) q.getSingleResult();
             em.getTransaction().begin();       
         
             User user = new User();

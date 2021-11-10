@@ -90,6 +90,22 @@ public class SecondaryController {
     }
     
     @FXML
+    private void deleteTovar() throws IOException{
+        
+        Tovar t = tovar.getSelectionModel().getSelectedItem();
+        System.out.println(t);
+        em.getTransaction().begin();
+        em.remove(t);
+        em.createQuery("DELETE From Tovar where name = '" + t.getIdTovar()+"'").executeUpdate();
+        em.getTransaction().commit();
+        
+        initialize();
+        
+        
+        
+    }
+    
+    @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }

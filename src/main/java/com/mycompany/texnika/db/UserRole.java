@@ -21,16 +21,16 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author buldi
+ * @author student
  */
 @Entity
-@Table(name = "userrole")
+@Table(name = "userRole")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Userrole.findAll", query = "SELECT u FROM Userrole u"),
-    @NamedQuery(name = "Userrole.findByIdRole", query = "SELECT u FROM Userrole u WHERE u.idRole = :idRole"),
-    @NamedQuery(name = "Userrole.findByRoleName", query = "SELECT u FROM Userrole u WHERE u.roleName = :roleName")})
-public class Userrole implements Serializable {
+    @NamedQuery(name = "UserRole.findAll", query = "SELECT u FROM UserRole u"),
+    @NamedQuery(name = "UserRole.findByIdRole", query = "SELECT u FROM UserRole u WHERE u.idRole = :idRole"),
+    @NamedQuery(name = "UserRole.findByRoleName", query = "SELECT u FROM UserRole u WHERE u.roleName = :roleName")})
+public class UserRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,19 +39,14 @@ public class Userrole implements Serializable {
     private Integer idRole;
     @Column(name = "RoleName")
     private String roleName;
-    @OneToMany(mappedBy = "roleId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roleId")
     private Collection<User> userCollection;
 
-    public Userrole() {
+    public UserRole() {
     }
 
-    public Userrole(Integer idRole) {
+    public UserRole(Integer idRole) {
         this.idRole = idRole;
-    }
-    
-    public Userrole(Integer idRole, String roleName) {
-        this.idRole = idRole;
-        this.roleName = roleName;
     }
 
     public Integer getIdRole() {
@@ -89,10 +84,10 @@ public class Userrole implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Userrole)) {
+        if (!(object instanceof UserRole)) {
             return false;
         }
-        Userrole other = (Userrole) object;
+        UserRole other = (UserRole) object;
         if ((this.idRole == null && other.idRole != null) || (this.idRole != null && !this.idRole.equals(other.idRole))) {
             return false;
         }
@@ -101,7 +96,7 @@ public class Userrole implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.texnika.db.Userrole[ idRole=" + idRole + " ]";
+        return "com.mycompany.texnika.db.UserRole[ idRole=" + idRole + " ]";
     }
     
 }

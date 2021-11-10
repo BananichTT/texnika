@@ -1,7 +1,7 @@
 package com.mycompany.texnika;
 
 import com.mycompany.texnika.db.User;
-import com.mycompany.texnika.db.Userrole;
+import com.mycompany.texnika.db.UserRole;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -41,7 +41,7 @@ public class PrimaryController {
 
             if (user.getPassword().equals(userpassword)) {
                 error.setText("");
-                Userrole role = user.getRoleId();
+                UserRole role = user.getRoleId();
                 if(role.getRoleName().equals("user")){
                     App.setRoot("secondary");
                 }

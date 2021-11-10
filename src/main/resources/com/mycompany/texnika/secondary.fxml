@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="318.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.texnika.SecondaryController">
+<BorderPane prefHeight="318.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.texnika.SecondaryController">
    <center>
       <Pane prefHeight="146.0" prefWidth="415.0" BorderPane.alignment="CENTER">
          <children>
@@ -26,7 +26,7 @@
       <Pane prefHeight="318.0" prefWidth="585.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="479.0" layoutY="134.0" mnemonicParsing="false" onAction="#addTovar" prefHeight="24.0" prefWidth="73.0" text="Add" />
-            <Button layoutX="385.0" layoutY="168.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Delete" />
+            <Button layoutX="385.0" layoutY="168.0" mnemonicParsing="false" onAction="#deleteTovar" prefHeight="27.0" prefWidth="74.0" text="Delete" />
             <TextField fx:id="tovarNameTextField" layoutX="459.0" layoutY="32.0" prefHeight="25.0" prefWidth="112.0" />
             <TextField fx:id="tovarTypeTextField" layoutX="459.0" layoutY="65.0" prefHeight="25.0" prefWidth="112.0" />
             <TextField fx:id="tovarCostTextField" layoutX="459.0" layoutY="101.0" prefHeight="25.0" prefWidth="112.0" />
