@@ -96,13 +96,9 @@ public class SecondaryController {
         System.out.println(t);
         em.getTransaction().begin();
         em.remove(t);
-        em.createQuery("DELETE From Tovar where name = '" + t.getIdTovar()+"'").executeUpdate();
         em.getTransaction().commit();
         
-        initialize();
-        
-        
-        
+        initialize(); 
     }
     
     @FXML
