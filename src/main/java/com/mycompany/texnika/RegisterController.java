@@ -41,17 +41,6 @@ public class RegisterController {
         String userlogin = userLoginTextField.getText();
         String userpassword = userPasswordField.getText();
 
-        /*if (userlogin.equals("")) {
-            error.setText("Неверный логин или пароль!");
-        }
-        if (userpassword.equals("")) {
-            error.setText("Неверный логин или пароль!");
-        }
-        if (username.equals("")) {
-            error.setText("Неверный логин или пароль!");
-        }*/
-
-        //if ((userlogin != null) && (userpassword != null) && (username == null)) {
             Query q = em.createNamedQuery("Userrole.findByRoleName");
             q.setParameter("roleName", "user");
             UserRole rol = (UserRole) q.getSingleResult();
@@ -71,6 +60,5 @@ public class RegisterController {
             System.out.println("user pass: " + userpassword);
 
             App.setRoot("primary");
-       // }
     }
 }
