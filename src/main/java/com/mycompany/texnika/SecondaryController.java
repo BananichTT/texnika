@@ -45,9 +45,6 @@ public class SecondaryController {
         Query q = em.createNamedQuery("Tovar.findAll");
         List<Tovar> tovarList = q.getResultList();
         
-//        for (Tovar t : tovarList) {
-//            System.out.println(t.getName());
-//        }
 
         nameColumn.setCellValueFactory((TableColumn.CellDataFeatures<Tovar, String> cd) -> {
             return new SimpleStringProperty(cd.getValue().getName());

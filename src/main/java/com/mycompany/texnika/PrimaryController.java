@@ -42,8 +42,10 @@ public class PrimaryController {
             if (user.getPassword().equals(userpassword)) {
                 error.setText("");
                 UserRole role = user.getRoleId();
-                if(role.getRoleName().equals("user")){
+                if(role.getRoleName().equals("admin")){
                     App.setRoot("secondary");
+                }else{
+                    App.setRoot("user");
                 }
             } else {
                 error.setText("Неверный логин или пароль!");
