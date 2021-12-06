@@ -1,0 +1,19 @@
+#addbutton{
+    -fx-background-color: #82FF14;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, gray, 10px, 0, 0, 0);
+    
+}
+#addbutton:hover{
+    -fx-background-color: #9DFF47;
+}
+#delbutton{
+    -fx-background-color: #FF1F33;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, gray, 10px, 0, 0, 0);
+}
+#delbutton:hover{
+    -fx-background-color: #FF384A;
+}

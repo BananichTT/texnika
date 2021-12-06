@@ -63,27 +63,30 @@ public class SecondaryController {
    }
 
     
-    @FXML
+       @FXML
     private void addTovar() throws IOException{
         String tovarName = tovarNameTextField.getText();
         String tovarType = tovarTypeTextField.getText();
         String tovarCost = tovarCostTextField.getText();
         
-        Tovar tovarIns = new Tovar();
-        tovarIns.setName(tovarName);
-        tovarIns.setType(tovarType);
-        tovarIns.setCost(tovarCost);
-        
-        em.getTransaction().begin();
-        em.persist(tovarIns);
-        em.getTransaction().commit();
-        
-       tovarNameTextField.setText("");
-       tovarTypeTextField.setText("");
-       tovarCostTextField.setText("");
-        
-        initialize();
-        
+        if (tovarName.isEmpty() || tovarType.isEmpty() || tovarCost.isEmpty()) {
+            System.out.println("Пустые поля");
+        }else{
+            Tovar tovarIns = new Tovar();
+            tovarIns.setName(tovarName);
+            tovarIns.setType(tovarType);
+            tovarIns.setCost(tovarCost);
+
+            em.getTransaction().begin();
+            em.persist(tovarIns);
+            em.getTransaction().commit();
+            
+            tovarNameTextField.setText("");
+            tovarTypeTextField.setText("");
+            tovarCostTextField.setText("");
+
+            initialize();
+        }      
     }
     
     @FXML
