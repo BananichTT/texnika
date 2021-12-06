@@ -14,6 +14,6 @@
 4. Изменить версию mysql-connector в зависимости от надобнасти
 5. Открыть файл sh.mwb и импортировать эту модель к себе в БД
 6. Вставить в БД в таблицу роли 2 записи
-    - INSERT INTO Role VALUES(1, 'admin');
-    - INSERT INTO Role VALUES(2, 'user');
+    - INSERT INTO Userrole VALUES(1, 'admin');
+    - INSERT INTO Userrole VALUES(2, 'user');
 7. Запустить программу
