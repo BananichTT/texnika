@@ -1,10 +1,19 @@
-# Список литературы 
+# Руководство пользователя
 
-- [Начало работы с Java Persistence API](https://www.tune-it.ru/web/vnik/home/-/blogs/начало-работы-с-java-persistence-api)
-- [Вставка пользователей в таблицу](https://stackoverflow.com/questions/4967852/how-to-insert-values-into-database-using-queries-using-entity-manager-persisten)
+Это информационная система магазина бытовой техники.
 
- ```java
-    em.getTransaction().begin();
-    em.persist(user);
-    em.getTransaction().commit();
- ```   
+## Перед работой
+
+Стоит настроить пару аспектов для корректной работы данной системы:
+
+1. Подготовить рабочее пространство
+  a) Установить OpenServer или MYSQLServer
+  b) Установить NetBeans
+  c) Скачать mysql-connector версии 8.0.17 или 8.0.26
+3. Скачать репозиторий
+4. Изменить версию mysql-connector в зависимости от надобнасти
+5. Открыть файл sh.mwb и импортировать эту модель к себе в БД
+6. Вставить в БД в таблицу роли 2 записи
+    - INSERT INTO Role VALUES(1, 'admin');
+    - INSERT INTO Role VALUES(2, 'user');
+7. Запустить программу
