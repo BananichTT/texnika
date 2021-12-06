@@ -13,16 +13,16 @@ import javafx.scene.control.TextField;
 import javax.persistence.Query;
 
 public class RegisterController {
-    
+
     @FXML
     private TextField userLoginTextField;
-    
+
     @FXML
     private TextField userNameTextField;
-    
+
     @FXML
     private PasswordField userPasswordField;
-    
+
     @FXML
     private Label error;
 
@@ -41,24 +41,29 @@ public class RegisterController {
         String userlogin = userLoginTextField.getText();
         String userpassword = userPasswordField.getText();
 
-            Query q = em.createNamedQuery("Userrole.findByRoleName");
-            q.setParameter("roleName", "user");
-            UserRole rol = (UserRole) q.getSingleResult();
-            em.getTransaction().begin();       
+        Query q = em.createNamedQuery("Userrole.findByRoleName");
+        q.setParameter("roleName", "user");
+        UserRole rol = (UserRole) q.getSingleResult();
         
+        if (username.isEmpty() || userlogin.isEmpty() || userpassword.isEmpty()) {
+            System.out.println("Пустые поля");
+        } else {
+            em.getTransaction().begin();
+
             User user = new User();
             user.setLogin(userlogin);
             user.setPassword(userpassword);
             user.setName(username);
             user.setRoleId(rol);
-          
+
             em.persist(user);
             em.getTransaction().commit();
-            
+
             System.out.println("user name: " + username);
             System.out.println("user login: " + userlogin);
             System.out.println("user pass: " + userpassword);
 
             App.setRoot("primary");
+        }
     }
 }

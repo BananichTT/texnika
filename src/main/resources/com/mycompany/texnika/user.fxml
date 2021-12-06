@@ -26,8 +26,8 @@
    <bottom>
       <Pane prefHeight="66.0" prefWidth="585.0" BorderPane.alignment="CENTER">
          <children>
-              <Button fx:id="secondaryButton" layoutX="501.0" layoutY="21.0" onAction="#switchToPrimary" prefHeight="15.0" prefWidth="70.0" text="Exit" />
-            <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#initializeUser" prefHeight="27.0" prefWidth="74.0" text="Update" />
+              <Button id="exitbutton" fx:id="secondaryButton" layoutX="501.0" layoutY="21.0" onAction="#switchToPrimary" prefHeight="15.0" prefWidth="70.0" stylesheets="@../../../style/style.css" text="Exit" />
+            <Button id="updatebutton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#initializeUser" prefHeight="27.0" prefWidth="74.0" stylesheets="@../../../style/style.css" text="Update" />
          </children>
       </Pane>
    </bottom>

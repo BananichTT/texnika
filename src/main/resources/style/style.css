@@ -17,3 +17,22 @@
 #delbutton:hover{
     -fx-background-color: #FF384A;
 }
+
+#updatebutton{
+    -fx-background-color: #FFC414;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, gray, 10px, 0, 0, 0);
+}
+#updatebutton:hover{
+    -fx-background-color: #FDCF44;
+}
+#exitbutton{
+    -fx-background-color: #FF1F33;
+    -fx-border-radius: 4px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, gray, 10px, 0, 0, 0);
+}
+#exitbutton:hover{
+    -fx-background-color: #FF384A;
+}
