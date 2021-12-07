@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.texnika.db;
+package com.mycompany.texnika.tests;
 
+import com.mycompany.texnika.db.Tovar;
+import com.mycompany.texnika.db.User;
+import com.mycompany.texnika.db.UserRole;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -18,11 +21,11 @@ import static org.junit.Assert.*;
  *
  * @author buldi
  */
-public class TovarTest {
+public class Tests {
     public static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_texnika_jar_1.0-SNAPSHOTPU");
     public static EntityManager em = emf.createEntityManager();
     
-    public TovarTest() {
+    public Tests() {
     }
     
     @BeforeClass
@@ -48,17 +51,21 @@ public class TovarTest {
         assertEquals(expResult, result);
  
     }
-    
+  
     @Test
-    public void testAddTovar() throws Exception {
-        Tovar t = new Tovar();
-        t.setName("TeaPot");
-        t.setType("Kitchen");
-        t.setCost("2000");
+    public void test() {
+        System.out.println("getName");
+        Query q = em.createNamedQuery("User.findByLogin");
+
+        q.setParameter("login", "san");
+        User user = (User) q.getSingleResult();
+        UserRole role = user.getRoleId();
         
-        em.getTransaction().begin();
-        em.persist(t);
-        em.getTransaction().commit();
+        String expResult = "user";
+        
+        String result = role.getRoleName();
+        assertEquals(expResult, result);
+ 
     }
 
 }

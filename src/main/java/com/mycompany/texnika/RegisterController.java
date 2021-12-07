@@ -41,7 +41,7 @@ public class RegisterController {
         String userlogin = userLoginTextField.getText();
         String userpassword = userPasswordField.getText();
 
-        Query q = em.createNamedQuery("Userrole.findByRoleName");
+        Query q = em.createNamedQuery("UserRole.findByRoleName");
         q.setParameter("roleName", "user");
         UserRole rol = (UserRole) q.getSingleResult();
         
